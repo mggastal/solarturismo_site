@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grupo VIP – Solar Turismo & Viagens</title>
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-MFQMDFN');</script>
+  <!-- End Google Tag Manager -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold: #C9A84C;
+      --gold-light: #E8C97A;
+      --gold-dark: #A07830;
+      --dark: #0D0D0D;
+      --dark-2: #1A1A1A;
+      --dark-3: #242424;
+      --white: #FAFAF8;
+      --gray: #888;
+      --font: 'Montserrat', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--dark);
+      color: var(--white);
+      font-family: var(--font);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem 1.5rem;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 110%, rgba(201,168,76,0.18) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 40% at 80% 20%, rgba(201,168,76,0.07) 0%, transparent 60%),
+        linear-gradient(160deg, #0a0a0a 0%, #1a1208 50%, #0a0a0a 100%);
+      z-index: 0;
+    }
+
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      height: 55%;
+      background: linear-gradient(to top, rgba(201,168,76,0.25), transparent);
+      z-index: 0;
+    }
+
+    .hero > * { position: relative; z-index: 1; }
+
+    .logo-wrap {
+      margin-bottom: 2.5rem;
+      animation: fadeDown 0.8s ease both;
+    }
+
+    .logo-wrap img { height: 90px; width: auto; object-fit: contain; }
+
+    .logo-placeholder {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .logo-placeholder .logo-sun {
+      width: 64px;
+      height: 64px;
+      background: radial-gradient(circle, var(--gold-light) 30%, var(--gold) 100%);
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      box-shadow: 0 0 40px rgba(201,168,76,0.5);
+    }
+
+    .logo-placeholder span {
+      font-size: 1.6rem;
+      font-weight: 900;
+      letter-spacing: 0.22em;
+      color: var(--white);
+    }
+
+    .logo-placeholder small {
+      font-size: 0.62rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .hero-location {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.82rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.6rem;
+      animation: fadeDown 0.9s 0.15s ease both;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 6.5vw, 4.6rem);
+      font-weight: 900;
+      line-height: 1.05;
+      color: var(--white);
+      max-width: 720px;
+      letter-spacing: -0.01em;
+      animation: fadeDown 1s 0.25s ease both;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      background: linear-gradient(90deg, #A07830 0%, #E8C97A 40%, #C9A84C 65%, #F5DFA0 85%, #A07830 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: block;
+      line-height: 1.08;
+      margin-top: 0.05em;
+    }
+
+    .hero p.hero-sub {
+      margin-top: 1.3rem;
+      font-size: clamp(1rem, 2.5vw, 1.18rem);
+      font-weight: 300;
+      color: rgba(250,250,248,0.7);
+      max-width: 500px;
+      animation: fadeDown 1s 0.4s ease both;
+    }
+
+    .btn-hero {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 2.4rem;
+      padding: 1.15rem 2.8rem;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold-dark) 100%);
+      color: var(--dark);
+      font-family: var(--font);
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 60px;
+      box-shadow: 0 8px 32px rgba(201,168,76,0.4), 0 2px 8px rgba(0,0,0,0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+      animation: fadeUp 1s 0.55s ease both;
+    }
+
+    .btn-hero:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 16px 48px rgba(201,168,76,0.55), 0 4px 12px rgba(0,0,0,0.4);
+    }
+
+    .hero-scroll {
+      margin-top: 3.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gray);
+      animation: fadeUp 1s 0.8s ease both;
+    }
+
+    .hero-scroll .arrow {
+      width: 20px;
+      height: 20px;
+      border-right: 2px solid var(--gold);
+      border-bottom: 2px solid var(--gold);
+      transform: rotate(45deg);
+      animation: bounceDown 1.5s infinite;
+    }
+
+    /* ── SHARED ── */
+    .section { padding: 6rem 1.5rem; }
+    .section-inner { max-width: 1080px; margin: 0 auto; }
+
+    .section-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.8rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      color: var(--white);
+      margin-bottom: 3rem;
+    }
+
+    .gold-divider {
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold-dark), var(--gold-light), var(--gold-dark));
+      border-radius: 2px;
+      margin: 0 0 2rem;
+    }
+
+    /* ── SERVICES ── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .service-card {
+      background: var(--dark-3);
+      border: 1px solid rgba(201,168,76,0.15);
+      border-radius: 16px;
+      padding: 2rem 1.2rem;
+      text-align: center;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+
+    .service-card:hover { border-color: var(--gold); transform: translateY(-4px); }
+
+    .service-card .icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0.8rem;
+    }
+
+    .service-card .icon svg { width: 40px; height: 40px; stroke: var(--gold); }
+
+    .service-card h3 {
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+    }
+
+    /* ── ABOUT ── */
+    .about-section {
+      background: var(--dark-2);
+      border-top: 1px solid rgba(201,168,76,0.12);
+      border-bottom: 1px solid rgba(201,168,76,0.12);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    @media (max-width: 700px) { .about-grid { grid-template-columns: 1fr; gap: 2.5rem; } }
+
+    .about-text p { color: rgba(250,250,248,0.75); margin-bottom: 1.1rem; font-size: 1rem; }
+
+    .about-photo-placeholder {
+      width: 100%;
+      aspect-ratio: 4/3;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #1e1a12, #2a2210);
+      border: 1px dashed rgba(201,168,76,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .stats-row { display: flex; gap: 2rem; margin-top: 2rem; flex-wrap: wrap; }
+
+    .stat strong { display: block; font-size: 2.2rem; font-weight: 800; color: var(--gold); line-height: 1; }
+    .stat span { font-size: 0.75rem; letter-spacing: 0.08em; color: var(--gray); text-transform: uppercase; }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .testimonial-card {
+      background: var(--dark-3);
+      border: 1px solid rgba(201,168,76,0.12);
+      border-radius: 20px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1.5rem;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+
+    .testimonial-card:hover { border-color: rgba(201,168,76,0.4); transform: translateY(-3px); }
+
+    .stars { color: var(--gold); font-size: 0.9rem; letter-spacing: 2px; margin-bottom: 0.7rem; }
+
+    .testimonial-text { color: rgba(250,250,248,0.82); font-size: 0.95rem; line-height: 1.7; flex: 1; }
+
+    .testimonial-author { display: flex; align-items: center; gap: 1rem; margin-top: 0.5rem; }
+
+    .author-avatar { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); flex-shrink: 0; }
+
+    .author-avatar-placeholder {
+      width: 48px; height: 48px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+      border: 2px solid var(--gold); flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 1rem; color: var(--dark);
+    }
+
+    .author-info strong { display: block; font-size: 0.9rem; font-weight: 700; color: var(--white); }
+    .author-info span { font-size: 0.78rem; color: var(--gold); letter-spacing: 0.05em; }
+
+    /* ── LOCATION ── */
+    .location-section { background: var(--dark-2); }
+
+    .location-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    @media (max-width: 700px) { .location-grid { grid-template-columns: 1fr; } }
+
+    .location-detail {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+      margin-bottom: 1.2rem;
+      color: rgba(250,250,248,0.8);
+      font-size: 0.95rem;
+    }
+
+    .icon-wrap {
+      width: 36px; height: 36px;
+      background: rgba(201,168,76,0.12);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .hours-table { width: 100%; border-collapse: collapse; margin-top: 0.5rem; font-size: 0.88rem; }
+    .hours-table td { padding: 0.35rem 0.2rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .hours-table td:first-child { color: rgba(250,250,248,0.6); }
+    .hours-table td:last-child { color: var(--gold-light); text-align: right; }
+
+    .map-wrap { border-radius: 20px; overflow: hidden; border: 1px solid rgba(201,168,76,0.2); height: 380px; }
+    .map-wrap iframe { width: 100%; height: 100%; border: 0; display: block; }
+
+    /* ── CTA ── */
+    .cta-section {
+      text-align: center;
+      padding: 7rem 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 80% at 50% 50%, rgba(201,168,76,0.1) 0%, transparent 70%);
+    }
+
+    .cta-section > * { position: relative; z-index: 1; }
+
+    .cta-section h2 {
+      font-size: clamp(1.9rem, 5vw, 3.5rem);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+
+    .cta-section h2 em {
+      font-style: normal;
+      background: linear-gradient(90deg, #A07830 0%, #E8C97A 40%, #C9A84C 65%, #F5DFA0 85%, #A07830 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .cta-section p { color: rgba(250,250,248,0.65); font-size: 1.05rem; max-width: 480px; margin: 0 auto 2.5rem; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #080808;
+      border-top: 1px solid rgba(201,168,76,0.15);
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+
+    .social-links { display: flex; justify-content: center; gap: 1.2rem; margin-bottom: 1.5rem; }
+
+    .social-links a {
+      display: flex; align-items: center; justify-content: center;
+      width: 44px; height: 44px; border-radius: 50%;
+      border: 1px solid rgba(201,168,76,0.3);
+      color: var(--gold); text-decoration: none;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .social-links a:hover { background: rgba(201,168,76,0.15); border-color: var(--gold); }
+
+    .footer-copy { font-size: 0.78rem; color: var(--gray); line-height: 1.8; }
+    .footer-copy a { color: var(--gold); text-decoration: none; }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes bounceDown {
+      0%, 100% { transform: rotate(45deg) translateY(0); }
+      50%       { transform: rotate(45deg) translateY(6px); }
+    }
+
+    @media (max-width: 600px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .stats-row { gap: 1.5rem; }
+      .map-wrap { height: 260px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MFQMDFN"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+<!-- ══════════════════════════════════ HERO ══════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+
+  <div class="logo-wrap">
+    <!-- Substitua por: <img src="logo.png" alt="Solar Turismo"> -->
+    <div class="logo-placeholder">
+      <div class="logo-sun"></div>
+      <span>SOLAR</span>
+      <small>Consultoria em Viagens</small>
+    </div>
+  </div>
+
+  <p class="hero-location">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="10" r="3"/><path d="M12 2a8 8 0 0 0-8 8c0 5.4 7.05 11.5 7.35 11.76a1 1 0 0 0 1.3 0C13 21.5 20 15.4 20 10a8 8 0 0 0-8-8z"/></svg>
+    Pelotas e Região
+  </p>
+
+  <h1>Entre agora no nosso<br><em>GRUPO VIP</em></h1>
+
+  <p class="hero-sub">e receba ofertas exclusivas, roteiros personalizados e vantagens especiais antes de todo mundo.</p>
+
+  <a class="btn-hero" href="https://chat.whatsapp.com/LCt4JWcTTZ2FvRZCrAbYDy?mode=gi_t" target="_blank" rel="noopener">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg>
+    Quero fazer parte do GRUPO VIP
+  </a>
+
+  <div class="hero-scroll">
+    <span>saiba mais</span>
+    <div class="arrow"></div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════ SERVICES ════════════════════════════════ -->
+<section class="section">
+  <div class="section-inner">
+    <p class="section-label">O que oferecemos</p>
+    <h2 class="section-title">Cuidamos de tudo para você</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg></span>
+        <h3>Passagens Aéreas</h3>
+      </div>
+      <div class="service-card">
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg></span>
+        <h3>Hospedagens</h3>
+      </div>
+      <div class="service-card">
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="6" width="22" height="13" rx="2"/><path d="M16 6V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><circle cx="8.5" cy="12.5" r="1.5"/><path d="M15 12h2M15 15.5h2"/></svg></span>
+        <h3>Trens</h3>
+      </div>
+      <div class="service-card">
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></span>
+        <h3>Seguro Viagem</h3>
+      </div>
+      <div class="service-card">
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="3"/><path d="M12 2a8 8 0 0 0-8 8c0 5.4 7.05 11.5 7.35 11.76a1 1 0 0 0 1.3 0C13 21.5 20 15.4 20 10a8 8 0 0 0-8-8z"/></svg></span>
+        <h3>Tours</h3>
+      </div>
+      <div class="service-card">
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+        <h3>Assistência 24h</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════ ABOUT ══════════════════════════════════ -->
+<section class="section about-section">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-text">
+        <p class="section-label">Quem somos</p>
+        <h2 class="section-title" style="margin-bottom:1.5rem;">Solar Turismo<br>&amp; Viagens</h2>
+        <div class="gold-divider"></div>
+        <p>Na Solar Turismo e Viagens, transformamos sonhos de viagem em realidade há mais de uma década. Somos uma agência especializada em roteiros personalizados, com atenção a cada detalhe para que você aproveite ao máximo cada destino.</p>
+        <p>Especializados em destinos europeus, mas também presentes em destinos nacionais e outros continentes, oferecemos passagens aéreas, hospedagem, trens, passeios, seguro viagem e assistência completa durante toda a jornada.</p>
+        <p>Nossa equipe dedicada seleciona os melhores hotéis e serviços, garantindo conforto e experiências únicas. Viaje conosco e desfrute de momentos inesquecíveis, com a tranquilidade de ter profissionais experientes ao seu lado.</p>
+        <div class="stats-row">
+          <div class="stat"><strong>+10</strong><span>Anos de experiência</span></div>
+          <div class="stat"><strong>5★</strong><span>Avaliação no Google</span></div>
+          <div class="stat"><strong>100%</strong><span>Dedicação ao cliente</span></div>
+        </div>
+      </div>
+      <div class="about-photo">
+        <!-- <img src="equipe.jpg" alt="Equipe Solar Turismo" style="width:100%;border-radius:20px;object-fit:cover;"> -->
+        <div class="about-photo-placeholder">
+          📷 Coloque aqui a foto da equipe<br><small style="opacity:.6">(equipe.jpg)</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════ TESTIMONIALS ══════════════════════════════ -->
+<section class="section" id="depoimentos">
+  <div class="section-inner">
+    <p class="section-label">Quem viajou com a gente</p>
+    <h2 class="section-title">Depoimentos</h2>
+    <div class="testimonials-grid">
+
+      <div class="testimonial-card">
+        <div>
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">Meus pais viajaram com a Solar Consultoria por 2 semanas visitando alguns pontos da Europa e retornaram na semana passada com tranquilidade. Como filha, me importo com a segurança e o conforto dos meus pais e soube que desde o início foram muito bem cuidados.</p>
+        </div>
+        <div class="testimonial-author">
+          <!-- <img src="depoimento01.png" alt="Priscila Mondadori" class="author-avatar"> -->
+          <div class="author-avatar-placeholder">P</div>
+          <div class="author-info"><strong>Priscila Mondadori</strong><span>Europa</span></div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div>
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">Nossa viagem com a Solar Turismo para Salvador e Morro de São Paulo foi incrível! Antes estávamos cansados da rotina e depois voltamos renovados e felizes. A agência cuidou de todos os detalhes, permitindo que aproveitássemos cada momento sem preocupação.</p>
+        </div>
+        <div class="testimonial-author">
+          <!-- <img src="depoimento02.png" alt="Josiane Rosales Rodrigues" class="author-avatar"> -->
+          <div class="author-avatar-placeholder">J</div>
+          <div class="author-info"><strong>Josiane Rosales Rodrigues</strong><span>Salvador &amp; Morro de São Paulo</span></div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div>
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">Excelente atendimento tanto on-line quanto no presencial. Minha escolha pela Solar iniciou pelo atendimento on-line, pois desde o primeiro contato percebi seriedade e transparência nas respostas e ofertas. Fui muito bem direcionada, acolhida e guiada pelas viagens que fiz a Londres e Paris!</p>
+        </div>
+        <div class="testimonial-author">
+          <!-- <img src="depoimento03.png" alt="Joelma Santos" class="author-avatar"> -->
+          <div class="author-avatar-placeholder">J</div>
+          <div class="author-info"><strong>Joelma Santos</strong><span>Londres &amp; Paris</span></div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div>
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">Gostaria de expressar minha total satisfação com os serviços prestados pela Solar na organização da minha recente viagem para a Austrália. O comprometimento, atenção, carinho e a disponibilidade em qualquer horário me encantaram. Com certeza, recomendo e usarei sempre.</p>
+        </div>
+        <div class="testimonial-author">
+          <!-- <img src="depoimento04.png" alt="Maria Eulalia" class="author-avatar"> -->
+          <div class="author-avatar-placeholder">M</div>
+          <div class="author-info"><strong>Maria Eulalia</strong><span>Austrália</span></div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div>
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">Foi incrível, a viagem foi maravilhosa, a agência organizou tudo pra gente. Sem palavras! A Nath foi ótima, respondeu todas as dúvidas e nos ajudou em tudo das passagens e dos passeios.</p>
+        </div>
+        <div class="testimonial-author">
+          <!-- <img src="depoimento05.png" alt="Juliana Franz" class="author-avatar"> -->
+          <div class="author-avatar-placeholder">J</div>
+          <div class="author-info"><strong>Juliana Franz</strong><span>Europa</span></div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div>
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">Atendentes gentis, atenciosos e prestativos tanto para o planejamento da viagem como durante os dias de passeio. Ficamos plenamente satisfeitos e recomendamos a agência.</p>
+        </div>
+        <div class="testimonial-author">
+          <!-- <img src="depoimento06.png" alt="Carolina Schafer Silveira" class="author-avatar"> -->
+          <div class="author-avatar-placeholder">C</div>
+          <div class="author-info"><strong>Carolina Schafer Silveira</strong><span>Europa</span></div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div>
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">Foi uma viagem sensacional para Portugal em outubro com ótima gastronomia, cultura e descanso. Diversos locais históricos que são um museu a céu aberto. Destaques para o centro histórico de Lisboa, o Castelo de Óbidos, a Universidade de Coimbra, a Praça da República de Braga e o rio Douro em Porto.</p>
+        </div>
+        <div class="testimonial-author">
+          <!-- <img src="depoimento07.png" alt="Maria Aparecida Rodrigues" class="author-avatar"> -->
+          <div class="author-avatar-placeholder">M</div>
+          <div class="author-info"><strong>Maria Aparecida Rodrigues</strong><span>Portugal</span></div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div>
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">A agência Solar organizou nossa viagem ao Chile com muito profissionalismo e eficiência, desde a compra das passagens, hotel, transfer, passeios, documentos, etc. O atendimento é extremamente cordial por toda a equipe. Recomendo!</p>
+        </div>
+        <div class="testimonial-author">
+          <!-- <img src="depoimento08.png" alt="Rosa Castilhos" class="author-avatar"> -->
+          <div class="author-avatar-placeholder">R</div>
+          <div class="author-info"><strong>Rosa Castilhos</strong><span>Chile</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════ LOCATION ════════════════════════════════ -->
+<section class="section location-section" id="localizacao">
+  <div class="section-inner">
+    <div class="location-grid">
+      <div class="location-info">
+        <p class="section-label">Onde estamos</p>
+        <h2 class="section-title" style="margin-bottom:1.5rem;">Venha nos visitar</h2>
+        <div class="gold-divider"></div>
+
+        <div class="location-detail">
+          <div class="icon-wrap">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="3"/><path d="M12 2a8 8 0 0 0-8 8c0 5.4 7.05 11.5 7.35 11.76a1 1 0 0 0 1.3 0C13 21.5 20 15.4 20 10a8 8 0 0 0-8-8z"/></svg>
+          </div>
+          <div>
+            <strong style="color:var(--white);display:block;margin-bottom:3px;">Endereço</strong>
+            R. Lori Huber, 107 – Loja 1<br>Parque Una, Pelotas – RS<br>CEP 96075-160
+          </div>
+        </div>
+
+        <div class="location-detail">
+          <div class="icon-wrap">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div>
+            <strong style="color:var(--white);display:block;margin-bottom:3px;">Telefone / WhatsApp</strong>
+            <a href="https://wa.me/5553984097615" style="color:var(--gold);text-decoration:none;">(53) 98409-7615</a>
+          </div>
+        </div>
+
+        <div class="location-detail">
+          <div class="icon-wrap">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div style="width:100%">
+            <strong style="color:var(--white);display:block;margin-bottom:8px;">Horário de Funcionamento</strong>
+            <table class="hours-table">
+              <tr><td>Segunda-feira</td><td>09:00 – 18:00</td></tr>
+              <tr><td>Terça-feira</td><td>09:00 – 18:00</td></tr>
+              <tr><td>Quarta-feira</td><td>09:00 – 18:00</td></tr>
+              <tr><td>Quinta-feira</td><td>09:00 – 18:00</td></tr>
+              <tr><td>Sexta-feira</td><td>09:00 – 18:00</td></tr>
+              <tr><td>Sábado</td><td style="color:var(--gray)">Fechado</td></tr>
+              <tr><td>Domingo</td><td style="color:var(--gray)">Fechado</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="map-wrap">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3457.5!2d-52.32!3d-31.76!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9511bf0e6b2c0001%3A0xe81bfebb2a38ded8!2sSolar%20Consultoria%20em%20Viagens!5e0!3m2!1spt-BR!2sbr!4v1716130000000!5m2!1spt-BR!2sbr"
+          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          title="Localização Solar Turismo">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════ CTA ═══════════════════════════════════ -->
+<section class="cta-section">
+  <p class="section-label" style="margin-bottom:1rem;">Oferta exclusiva</p>
+  <h2>Faça parte do nosso<br><em>GRUPO VIP</em></h2>
+  <p>Receba ofertas exclusivas, roteiros especiais e vantagens antes de todo mundo. Só para membros do grupo!</p>
+  <a class="btn-hero" href="https://chat.whatsapp.com/LCt4JWcTTZ2FvRZCrAbYDy?mode=gi_t" target="_blank" rel="noopener">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg>
+    Quero fazer parte do GRUPO VIP
+  </a>
+</section>
+
+
+<!-- ════════════════════════════════ FOOTER ════════════════════════════════ -->
+<footer>
+  <div class="social-links">
+    <a href="https://www.instagram.com/solar_turismo/" target="_blank" rel="noopener" aria-label="Instagram">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+    </a>
+    <a href="https://www.facebook.com/solarturismoeviagens" target="_blank" rel="noopener" aria-label="Facebook">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+    </a>
+    <a href="https://wa.me/5553984097615" target="_blank" rel="noopener" aria-label="WhatsApp">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.001 22l4.978-1.418A9.956 9.956 0 0 0 12 22c5.523 0 10-4.477 10-10S17.522 2 11.999 2zm.001 18a7.96 7.96 0 0 1-4.073-1.117l-.292-.174-3.036.866.851-2.957-.19-.305A7.962 7.962 0 0 1 4 12c0-4.418 3.582-8 8-8s8 3.582 8 8-3.582 8-8 8z"/></svg>
+    </a>
+  </div>
+  <div class="footer-copy">
+    <p>Copyright © 2025, Solar Turismo &amp; Viagens. Todos os direitos reservados.</p>
+    <p>CNPJ 24.312.616/0001-66</p>
+    <p style="margin-top:0.5rem;"><a href="https://wa.me/5553984097615">(53) 98409-7615</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
