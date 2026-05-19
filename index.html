@@ -574,6 +574,83 @@
       .stats-row { gap: 1.5rem; }
       .map-wrap { height: 260px; }
     }
+
+    /* ── CAROUSEL ── */
+    .carousel-wrap {
+      position: relative;
+      max-width: 860px;
+      margin: 0 auto;
+      overflow: hidden;
+      border-radius: 20px;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.7s cubic-bezier(0.77,0,0.175,1);
+      will-change: transform;
+    }
+
+    .carousel-slide {
+      min-width: 100%;
+      position: relative;
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      display: block;
+      border-radius: 20px;
+      object-fit: cover;
+      max-height: 520px;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.55);
+      border: 1px solid rgba(201,168,76,0.4);
+      color: var(--gold);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .carousel-btn:hover {
+      background: rgba(201,168,76,0.2);
+      border-color: var(--gold);
+    }
+
+    .carousel-btn.prev { left: 14px; }
+    .carousel-btn.next { right: 14px; }
+
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 1.4rem;
+    }
+
+    .carousel-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(201,168,76,0.3);
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+      border: none;
+    }
+
+    .carousel-dot.active {
+      background: var(--gold);
+      transform: scale(1.3);
+    }
+
   </style>
 </head>
 <body>
@@ -690,132 +767,68 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="section-inner">
     <p class="section-label">Quem viajou com a gente</p>
     <h2 class="section-title">Depoimentos</h2>
-    <div class="testimonials-grid">
 
-      <!-- 01 -->
-      <div class="testimonial-card">
-        <div>
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">Meus pais viajaram com a Solar Consultoria por 2 semanas visitando alguns pontos da Europa e retornaram na semana passada com tranquilidade. Como filha, me importo com a segurança e o conforto dos meus pais e soube que desde o início foram muito bem cuidados.</p>
-        </div>
-        <div class="testimonial-author">
-          <img src="depoimento01.png" alt="Priscila Mondadori" class="author-avatar">
-          <div class="author-info">
-            <strong>Priscila Mondadori</strong>
-            <span>Europa</span>
-          </div>
-        </div>
+    <div class="carousel-wrap">
+      <div class="carousel-track" id="carouselTrack">
+        <div class="carousel-slide"><img src="depoimento01.png" alt="Priscila Mondadori"></div>
+        <div class="carousel-slide"><img src="depoimento02.png" alt="Josiane Rosales Rodrigues"></div>
+        <div class="carousel-slide"><img src="depoimento03.png" alt="Joelma Santos"></div>
+        <div class="carousel-slide"><img src="depoimento04.png" alt="Maria Eulalia"></div>
+        <div class="carousel-slide"><img src="depoimento05.png" alt="Juliana Franz"></div>
+        <div class="carousel-slide"><img src="depoimento06.png" alt="Carolina Schafer Silveira"></div>
+        <div class="carousel-slide"><img src="depoimento07.png" alt="Maria Aparecida Rodrigues"></div>
+        <div class="carousel-slide"><img src="depoimento08.png" alt="Rosa Castilhos"></div>
       </div>
 
-      <!-- 02 -->
-      <div class="testimonial-card">
-        <div>
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">Nossa viagem com a Solar Turismo para Salvador e Morro de São Paulo foi incrível! Antes estávamos cansados da rotina e depois voltamos renovados e felizes. A agência cuidou de todos os detalhes, permitindo que aproveitássemos cada momento sem preocupação.</p>
-        </div>
-        <div class="testimonial-author">
-          <img src="depoimento02.png" alt="Josiane Rosales Rodrigues" class="author-avatar">
-          <div class="author-info">
-            <strong>Josiane Rosales Rodrigues</strong>
-            <span>Salvador &amp; Morro de São Paulo</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- 03 -->
-      <div class="testimonial-card">
-        <div>
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">Excelente atendimento tanto on-line quanto no presencial. Minha escolha pela Solar iniciou pelo atendimento on-line, pois desde o primeiro contato percebi seriedade e transparência nas respostas e ofertas. Fui muito bem direcionada, acolhida e guiada pelas viagens que fiz a Londres e Paris!</p>
-        </div>
-        <div class="testimonial-author">
-          <img src="depoimento03.png" alt="Joelma Santos" class="author-avatar">
-          <div class="author-info">
-            <strong>Joelma Santos</strong>
-            <span>Londres &amp; Paris</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- 04 -->
-      <div class="testimonial-card">
-        <div>
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">Gostaria de expressar minha total satisfação com os serviços prestados pela Solar na organização da minha recente viagem para a Austrália. O comprometimento, atenção, carinho e a disponibilidade em qualquer horário me encantaram. Com certeza, recomendo e usarei sempre.</p>
-        </div>
-        <div class="testimonial-author">
-          <img src="depoimento04.png" alt="Maria Eulalia" class="author-avatar">
-          <div class="author-info">
-            <strong>Maria Eulalia</strong>
-            <span>Austrália</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- 05 -->
-      <div class="testimonial-card">
-        <div>
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">Foi incrível, a viagem foi maravilhosa, a agência organizou tudo pra gente. Sem palavras! A Nath foi ótima, respondeu todas as dúvidas e nos ajudou em tudo das passagens e dos passeios.</p>
-        </div>
-        <div class="testimonial-author">
-          <img src="depoimento05.png" alt="Juliana Franz" class="author-avatar">
-          <div class="author-info">
-            <strong>Juliana Franz</strong>
-            <span>Europa</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- 06 -->
-      <div class="testimonial-card">
-        <div>
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">Atendentes gentis, atenciosos e prestativos tanto para o planejamento da viagem como durante os dias de passeio. Ficamos plenamente satisfeitos e recomendamos a agência.</p>
-        </div>
-        <div class="testimonial-author">
-          <img src="depoimento06.png" alt="Carolina Schafer Silveira" class="author-avatar">
-          <div class="author-info">
-            <strong>Carolina Schafer Silveira</strong>
-            <span>Europa</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- 07 -->
-      <div class="testimonial-card">
-        <div>
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">Foi uma viagem sensacional para Portugal em outubro com ótima gastronomia, cultura e descanso. Diversos locais históricos que são um museu a céu aberto. Destaques para o centro histórico de Lisboa, o Castelo de Óbidos, a Universidade de Coimbra, a Praça da República de Braga e o rio Douro em Porto.</p>
-        </div>
-        <div class="testimonial-author">
-          <img src="depoimento07.png" alt="Maria Aparecida Rodrigues" class="author-avatar">
-          <div class="author-info">
-            <strong>Maria Aparecida Rodrigues</strong>
-            <span>Portugal</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- 08 -->
-      <div class="testimonial-card">
-        <div>
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">A agência Solar organizou nossa viagem ao Chile com muito profissionalismo e eficiência, desde a compra das passagens, hotel, transfer, passeios, documentos, etc. O atendimento é extremamente cordial por toda a equipe. Recomendo!</p>
-        </div>
-        <div class="testimonial-author">
-          <img src="depoimento08.png" alt="Rosa Castilhos" class="author-avatar">
-          <div class="author-info">
-            <strong>Rosa Castilhos</strong>
-            <span>Chile</span>
-          </div>
-        </div>
-      </div>
-
+      <button class="carousel-btn prev" onclick="carouselMove(-1)" aria-label="Anterior">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <button class="carousel-btn next" onclick="carouselMove(1)" aria-label="Próximo">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
     </div>
+
+    <div class="carousel-dots" id="carouselDots"></div>
   </div>
 </section>
 
+<script>
+  (function() {
+    const total = 8;
+    let current = 0;
+    let timer;
+
+    const track = document.getElementById('carouselTrack');
+    const dotsWrap = document.getElementById('carouselDots');
+
+    // build dots
+    for (let i = 0; i < total; i++) {
+      const d = document.createElement('button');
+      d.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+      d.setAttribute('aria-label', 'Slide ' + (i+1));
+      d.addEventListener('click', () => goTo(i));
+      dotsWrap.appendChild(d);
+    }
+
+    function goTo(n) {
+      current = (n + total) % total;
+      track.style.transform = 'translateX(-' + (current * 100) + '%)';
+      document.querySelectorAll('.carousel-dot').forEach((d, i) => {
+        d.classList.toggle('active', i === current);
+      });
+      resetTimer();
+    }
+
+    function resetTimer() {
+      clearInterval(timer);
+      timer = setInterval(() => goTo(current + 1), 4500);
+    }
+
+    window.carouselMove = (dir) => goTo(current + dir);
+
+    resetTimer();
+  })();
+</script>
 
 <!-- ════════════════════════════════ LOCATION ════════════════════════════════ -->
 <section class="section location-section" id="localizacao">
