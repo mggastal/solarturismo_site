@@ -85,7 +85,7 @@
     }
 
     .logo-wrap img {
-      height: 90px;
+      height: 180px;
       width: auto;
       object-fit: contain;
     }
@@ -651,6 +651,226 @@
       transform: scale(1.3);
     }
 
+
+    /* ── PLANE SCROLL ── */
+    #scrollPlane {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 52px;
+      height: 52px;
+      pointer-events: none;
+      z-index: 9999;
+      filter: drop-shadow(0 0 10px rgba(201,168,76,0.7));
+      transition: opacity 0.4s;
+      opacity: 0;
+    }
+
+    #scrollPlane.visible { opacity: 1; }
+
+    /* ── BOARDING PASS ── */
+    .boarding-section {
+      padding: 5rem 1.5rem;
+      background: var(--dark-2);
+      border-top: 1px solid rgba(201,168,76,0.12);
+      border-bottom: 1px solid rgba(201,168,76,0.12);
+      display: flex;
+      justify-content: center;
+    }
+
+    .boarding-pass {
+      width: 100%;
+      max-width: 780px;
+      background: linear-gradient(135deg, #1a1208 0%, #0f0d06 100%);
+      border: 1px solid rgba(201,168,76,0.35);
+      border-radius: 24px;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(201,168,76,0.1);
+      position: relative;
+    }
+
+    /* dashed tear line */
+    .boarding-tear {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 0 4px;
+      position: relative;
+    }
+
+    .boarding-tear::before {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      left: 50%;
+      border-left: 2px dashed rgba(201,168,76,0.25);
+    }
+
+    .tear-circle {
+      width: 20px;
+      height: 20px;
+      background: var(--dark);
+      border: 1px solid rgba(201,168,76,0.25);
+      border-radius: 50%;
+      z-index: 1;
+      flex-shrink: 0;
+    }
+
+    .tear-circle.top { margin-top: -10px; }
+    .tear-circle.bottom { margin-top: auto; margin-bottom: -10px; }
+
+    /* main body */
+    .boarding-main {
+      padding: 2.2rem 2rem;
+    }
+
+    .boarding-airline {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 1.8rem;
+    }
+
+    .boarding-airline .sun {
+      width: 32px;
+      height: 32px;
+      background: radial-gradient(circle, var(--gold-light) 30%, var(--gold) 100%);
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      flex-shrink: 0;
+    }
+
+    .boarding-airline span {
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+
+    .boarding-route {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .boarding-city { flex: 1; }
+
+    .boarding-city .code {
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      font-weight: 900;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
+
+    .boarding-city .name {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      color: var(--gray);
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    .boarding-plane-icon {
+      color: var(--gold);
+      opacity: 0.8;
+      flex-shrink: 0;
+    }
+
+    .boarding-details {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .boarding-field label {
+      display: block;
+      font-size: 0.62rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 4px;
+    }
+
+    .boarding-field span {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    /* stub */
+    .boarding-stub {
+      padding: 2.2rem 1.6rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .boarding-stub .stub-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 0.4rem;
+    }
+
+    .boarding-stub .stub-value {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .boarding-stub .stub-value.gold {
+      color: var(--gold);
+    }
+
+    .boarding-barcode {
+      display: flex;
+      gap: 2px;
+      margin-top: 1.2rem;
+      align-items: flex-end;
+    }
+
+    .boarding-barcode span {
+      background: rgba(201,168,76,0.6);
+      border-radius: 1px;
+      width: 3px;
+    }
+
+    .boarding-cta {
+      margin-top: 1.5rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0.75rem 1.4rem;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold-dark) 100%);
+      color: var(--dark);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 40px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 16px rgba(201,168,76,0.35);
+    }
+
+    .boarding-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(201,168,76,0.5);
+    }
+
+    @media (max-width: 600px) {
+      .boarding-pass { grid-template-columns: 1fr; }
+      .boarding-tear { display: none; }
+      .boarding-stub { border-top: 1px dashed rgba(201,168,76,0.25); }
+      .boarding-details { grid-template-columns: repeat(2, 1fr); }
+    }
+
   </style>
 </head>
 <body>
@@ -668,11 +888,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="logo-wrap">
     <img src="logo.png" alt="Solar Turismo">
   </div>
-
-  <p class="hero-location">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="10" r="3"/><path d="M12 2a8 8 0 0 0-8 8c0 5.4 7.05 11.5 7.35 11.76a1 1 0 0 0 1.3 0C13 21.5 20 15.4 20 10a8 8 0 0 0-8-8z"/></svg>
-    Pelotas e Região
-  </p>
 
   <h1>Viva a <span class="highlight">Viagem<br>dos Seus Sonhos</span></h1>
 
@@ -760,6 +975,166 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
 </section>
+
+
+<!-- ── AVIÃO SCROLL ── -->
+<svg id="scrollPlane" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M58 32L8 12l8 20-8 20z" fill="#C9A84C"/>
+  <path d="M16 32h30M34 24l8 8-8 8" stroke="#0D0D0D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+<!-- ── BOARDING PASS ── -->
+<section class="boarding-section">
+  <div class="boarding-pass">
+
+    <!-- MAIN -->
+    <div class="boarding-main">
+      <div class="boarding-airline">
+        <img src="logo.png" alt="Solar" style="height:36px;width:auto;object-fit:contain;">
+        <span>Solar Turismo &amp; Viagens</span>
+      </div>
+
+      <div class="boarding-route">
+        <div class="boarding-city">
+          <div class="code">SUA</div>
+          <div class="name">Sua Cidade</div>
+        </div>
+        <div class="boarding-plane-icon">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg>
+        </div>
+        <div class="boarding-city" style="text-align:right">
+          <div class="code">MUN</div>
+          <div class="name">O Mundo</div>
+        </div>
+      </div>
+
+      <div class="boarding-details">
+        <div class="boarding-field">
+          <label>Passageiro</label>
+          <span>Você</span>
+        </div>
+        <div class="boarding-field">
+          <label>Voo</label>
+          <span>SLR-001</span>
+        </div>
+        <div class="boarding-field">
+          <label>Classe</label>
+          <span>VIP</span>
+        </div>
+        <div class="boarding-field">
+          <label>Data</label>
+          <span>Sua Escolha</span>
+        </div>
+        <div class="boarding-field">
+          <label>Assento</label>
+          <span>Janela ✦</span>
+        </div>
+        <div class="boarding-field">
+          <label>Portão</label>
+          <span>Solar</span>
+        </div>
+      </div>
+
+      <a class="boarding-cta" href="https://wa.me/5553984097615?text=Ol%C3%A1%2C%20vim%20do%20site%20e%20gostaria%20de%20falar%20com%20o%20atendimento." target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.001 22l4.978-1.418A9.956 9.956 0 0 0 12 22c5.523 0 10-4.477 10-10S17.522 2 11.999 2zm.001 18a7.96 7.96 0 0 1-4.073-1.117l-.292-.174-3.036.866.851-2.957-.19-.305A7.962 7.962 0 0 1 4 12c0-4.418 3.582-8 8-8s8 3.582 8 8-3.582 8-8 8z"/></svg>
+        Reservar minha viagem
+      </a>
+    </div>
+
+    <!-- TEAR -->
+    <div class="boarding-tear">
+      <div class="tear-circle top"></div>
+      <div class="tear-circle bottom"></div>
+    </div>
+
+    <!-- STUB -->
+    <div class="boarding-stub">
+      <div>
+        <div class="stub-label">Destino</div>
+        <div class="stub-value gold">O Mundo</div>
+      </div>
+      <div>
+        <div class="stub-label">Voo</div>
+        <div class="stub-value">SLR-001</div>
+      </div>
+      <div>
+        <div class="stub-label">Classe</div>
+        <div class="stub-value gold">VIP ✦</div>
+      </div>
+      <div>
+        <div class="stub-label">Agência</div>
+        <div class="stub-value">Solar Turismo</div>
+      </div>
+      <div class="boarding-barcode" id="barcode"></div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  /* ── BARCODE ── */
+  (function(){
+    const bc = document.getElementById('barcode');
+    if (!bc) return;
+    const heights = [28,16,36,20,44,14,32,18,40,12,36,22,28,16,44,20,32,14,38,18];
+    heights.forEach(h => {
+      const s = document.createElement('span');
+      s.style.height = h + 'px';
+      bc.appendChild(s);
+    });
+  })();
+
+  /* ── PLANE SCROLL ── */
+  (function(){
+    const plane = document.getElementById('scrollPlane');
+    if (!plane) return;
+
+    const W = () => window.innerWidth;
+    const H = () => window.innerHeight;
+
+    // Wavy path: given scroll progress 0→1, return {x, y, angle}
+    function getPos(p) {
+      // horizontal: oscillates left↔right
+      const amp = W() * 0.35;
+      const cx = W() / 2 + amp * Math.sin(p * Math.PI * 2.5);
+      // vertical: travels from top to bottom of page
+      const maxScroll = document.body.scrollHeight - H();
+      const cy = p * (document.body.scrollHeight - 60) + 30;
+      // angle follows the tangent of the path
+      const dp = 0.005;
+      const amp2 = W() * 0.35;
+      const cx2 = W() / 2 + amp2 * Math.sin((p + dp) * Math.PI * 2.5);
+      const cy2 = (p + dp) * (document.body.scrollHeight - 60) + 30;
+      const angle = Math.atan2(cy2 - cy, cx2 - cx) * 180 / Math.PI;
+      return { x: cx, y: cy, angle };
+    }
+
+    let ticking = false;
+
+    function update() {
+      const scrolled = window.scrollY;
+      const maxScroll = document.body.scrollHeight - H();
+      if (maxScroll <= 0) return;
+      const progress = Math.min(scrolled / maxScroll, 1);
+
+      if (scrolled > 80) {
+        plane.classList.add('visible');
+      } else {
+        plane.classList.remove('visible');
+      }
+
+      const { x, y, angle } = getPos(progress);
+      plane.style.transform = `translate(${x - 26}px, ${y - 26}px) rotate(${angle}deg)`;
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) { requestAnimationFrame(update); ticking = true; }
+    }, { passive: true });
+
+    update();
+  })();
+</script>
 
 
 <!-- ══════════════════════════════ TESTIMONIALS ══════════════════════════════ -->
@@ -916,9 +1291,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </a>
   </div>
   <div class="footer-copy">
-    <p>Copyright © 2025, Solar Turismo &amp; Viagens. Todos os direitos reservados.</p>
+    <p>Copyright © 2026, Solar Turismo &amp; Viagens. Todos os direitos reservados.</p>
     <p>CNPJ 24.312.616/0001-66</p>
-    <p style="margin-top:0.5rem;"><a href="https://wa.me/5553984097615">(53) 98409-7615</a></p>
   </div>
 </footer>
 
